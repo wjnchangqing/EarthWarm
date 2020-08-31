@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../static/JavaScript/echarts.min.js"></script>
+    <script src="../static/JavaScript/ecStat.min.js"></script>
+    <script src="../static/JavaScript/3.3.1-jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:600px;"></div>
+    <script type="text/javascript">
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+
+
+
+        //从服务器获取
+
+        //从本地获取
+        /* $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '',
+            success: function (datas) {
+                data = datas;
+                console.log(data) */
+
+        //为了避免网络和配置环境的影响，以最直观、方便的方式获取后台数据文件的内容，所以仅此次上交的作品文件，采用静态赋值数据的方式展示成品，望谅解。
+        //我们小组正常情况下采取上方：从服务器获取、从本地后台获取，两种方式获取后台数据文件的内容。
+        var data = [[24.4, 8.638250000000001], [28, 8.7325], [32.6, 8.745916666666666], [38.3, 8.700083333333334], [45.7, 8.499583333333334], [54.3, 8.850249999999999], [63.8, 8.639166666666666], [73.7, 8.994416666666668], [84.8, 8.836583333333333], [96.3, 9.202583333333331], [109, 9.570416666666667], [123, 9.732166666666666], [140, 9.507333333333333]];
+
+
+
+
+
+
+        var myRegression = ecStat.regression('polynomial', data, 3);   // (回归类型，数据，多项式阶乘)
+
+        myRegression.points.sort(function (a, b) {    // 返回一个对象,绘制折线图的拟合数据点 points,参数 parameter,曲线表达式 expression
+            return a[0] - b[0];
+        });
+
+        option = {
+
+            tooltip: {
+                trigger: 'axis',    // 触发类型；轴触发，axis则鼠标hover到一条柱状图显示全部数据
+                axisPointer: {      // 坐标轴指示器，坐标轴触发有效，
+                    type: 'cross'   // 默认为line，line直线，cross十字准星，shadow阴影
+                }
+            },
+            title: {
+                text: '全球二氧化碳排放量(co2 emissions)和全球温度(temperature)分析',
+                //    subtext: 'By ecStat.regression',              //  副标题文本
+                //   sublink: 'https://github.com/ecomfe/echarts-stat',   // 副标题超链接
+                left: 'center',
+                top: 16,
+            },
+            xAxis: {
+                type: 'value',
+                name: 'co2 emissions（10^10t）',
+                nameLocation: 'middle',
+                nameGap: 25,       //坐标轴名称与轴线之间的距离；
+                nameTextStyle: {
+                    fontSize: 15
+                },
+                max: 150,
+                min: 20,
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'    // 虚线
+                    }
+                },
+                splitNumber: 10,
+
+            },
+            yAxis: {
+                type: 'value',
+                name: 'temperature(℃)',
+                nameTextStyle: {
+                    fontSize: 15
+                },
+                min: 8,
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            },
+            grid: {
+                top: 90
+            },
+            series: [{
+                name: 'scatter',
+                type: 'scatter',
+                emphasis: {
+                    label: {
+                        show: true,
+                        position: 'right',
+                        color: 'blue',
+                        fontSize: 16
+                    }
+                },
+                data: data
+            }, {
+                name: 'line',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                data: myRegression.points,    // 拟合点
+                markPoint: {
+                    itemStyle: {
+                        color: 'transparent'
+                    },
+                    label: {
+                        show: true,
+                        position: 'left',
+                        formatter: myRegression.expression,    // 回归方程
+                        color: '#333',
+                        fontSize: 14
+                    },
+                    data: [{
+                        coord: myRegression.points[myRegression.points.length - 1]
+                    }]
+                }
+            }]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+        myChart.setOption(option);   // 使用刚指定的配置项和数据显示图表。 
+
+
+
+
+
+        /*   },
+          error: function (e) {
+          }
+      }); */
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

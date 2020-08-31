@@ -1,0 +1,108 @@
+/* CSS Document */
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, img, dl, dt, dd, table, th, td, blockquote, fieldset, div, strong, label, em {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+input, button {
+    margin: 0;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+body {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    background: url(../images/BG.jpg) repeat-y;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*memberShow*/
+
+.memberShow {
+    width: 459px;
+    height: 222px;
+    position: relative;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.memberShow li {
+    float: left;
+    overflow: hidden;
+    margin: 0 10px 10px 0;
+    border: 1px solid #ccc;
+    padding: 1px;
+}
+
+.memberShow li.memLI {
+    height: 100px;
+    width: 100px;
+}
+
+.memberShow .popInfo {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #ff6600;
+    width: 268px;
+    height: 104px;
+    overflow: hidden;
+}
+
+.memberShow .popInfo img {
+    width: 100px;
+    display: block;
+    position: relative;
+    z-index: 3;
+    padding: 1px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.memberShow .popInfo p {
+    width: 148px;
+    padding: 5px 7px;
+    height: 90px;
+    line-height: 20px;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.memberShow .popInfo p strong {
+    display: block;
+}
+
+.memberShow .layerMode {
+    display: none;
+    position: absolute;
+    background: #000;
+    filter: Alpha(Opacity=50);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    width: 446px;
+    height: 218px;
+    z-index: 3;
+}
+
+.img img {
+    width: 100px;
+    height: 100px;
+}

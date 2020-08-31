@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-attachment: fixed;
+}
+
+.mainbox {
+    color: whitesmoke;
+    display: initial;
+}
+
+.result {
+    width: 100%;
+}
+
+.suggestions {
+    width: 100%;
+}
+
+.box {
+    margin: 0 auto;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 20px;
+}
+
+.ti_mu1 {
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.result .topic {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', 'KaiTi';
+}
+
+.suggestions .topic {
+    text-indent: 2em;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', 'KaiTi';
+}
+
+p {
+    text-indent: 2em;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Times New Roman', 'KaiTi';
+}
+
+.result li {
+    margin-left: 6%;
+    list-style-type: disc;
+    margin-right: 10%;
+    font-size: 20px;
+    font-family: 'Times New Roman', 'KaiTi';
+}
+
+.suggestions li {
+    margin-left: 10%;
+    list-style-type: disc;
+    margin-right: 10%;
+    font-size: 20px;
+    font-family: 'Times New Roman', 'KaiTi';
+}
+
+.ti_mu2 {
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.advice {
+    text-indent: 2em;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', 'KaiTi';
+}
+
+.advice ul {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-weight: lighter;
+}
+
+.ti_mu3 {
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.last {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-indent: 2em;
+    font-weight: bold;
+}
+
+span {
+    color: yellow;
+}
+
+.over {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.over .left {
+    width: 50%;
+    float: left;
+}
+
+.over .right {
+    width: 50%;
+    float: left;
+}

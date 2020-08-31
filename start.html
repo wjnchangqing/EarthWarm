@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>到底是谁惹的祸？</title>
+    <link rel="stylesheet" href="static/css/page1.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <script src="static/JavaScript/fonts.js"></script>
+
+</head>
+
+<body>
+    <header style="height: 1.7rem;">
+        <h1>到底是谁惹的祸？</h1>
+        <h2>——分析全球环境危机难题：全球变暖</h2>
+        <div class="showTime"></div>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000); //開始运行
+            function time() {
+                clearTimeout(t); //清除定时器
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var h = dt.getHours(); //获取时
+                var m = dt.getMinutes(); //获取分
+                var s = dt.getSeconds(); //获取秒
+                document.querySelector(".showTime").innerHTML = '当前时间：' + y + "年" + mt + "月" + day + "-" + h + "时" + m +
+                    "分" + s + "秒";
+                t = setTimeout(time, 1000); //设定定时器，循环运行     
+            }
+        </script>
+    </header>
+
+    <section class="section-plans" id="section-plans">
+
+        <div class="row">
+            <div class="col-1-of-3">
+                <div class="card">
+                    <div class="card__side card__side--front-1">
+                        <img src="static/images/fire1.jfif" alt="澳大利亚山火"
+                            style="width : 95%;padding-top: 10%;padding-left: 5%;">
+                        <img src="static/images/fire2.jpeg" alt=""
+                            style="width : 95%;padding-top: 10%;padding-left: 5%;">
+                    </div>
+                    <div class="card__side card__side--back card__side--back-1">
+                        <div class="card__title card__title--1">
+                            <h4 class="card__heading">新闻一：全球瞩目的澳大利亚山火</h4>
+                        </div>
+
+                        <div class="card__details">
+                            <p>2019年7月，澳大利亚东南部树丛燃起火焰，后在整个东部大陆迅速扩展起来，直至2020年2月才被扑灭，这次大火持续时间长达210天，有33人死于火灾，2500多间房屋被摧毁，1170万公顷土地被烧毁，12亿野生动物丧生，其中澳洲独有的考拉也在这次山火中牺牲了超2万只。
+                            </p>
+                            <p> 释放二氧化碳超过3.5亿吨，这相当于澳洲年平均二氧化碳排放量的2/3，气候专家认为，吸收大火释放的二氧化碳可能需要一个世纪或更长时间。首都堪培拉2019年12月空气质量指数屡次超过1000，2020年1月1日当天的PM2.5数值甚至达到每立方米855.6微克，这超过了北京过去多年的最高纪录。据科学家测量计算在悉尼室外呼吸，相当于同时吸35根香烟。
+                            </p>
+                            <a href="index.html" class="btn btn--white">分析奥秘</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1-of-3">
+                <div class="card">
+                    <div class="card__side card__side--front-2">
+                        <img src="static/images/grass1.jpg" alt="4000-5000米珠峰长草"
+                            style="width : 95%;padding-top: 10%;padding-left: 5%;">
+                        <img src="static/images/grass2.jpg" alt="5000-6000米珠峰植被增加"
+                            style="width : 95%;padding-top: 10%;padding-left: 5%;">
+                    </div>
+                    <div class="card__side card__side--back card__side--back-2">
+                        <div class="card__title card__title--2">
+                            <h4 class="card__heading">新闻二：鲜为人知的珠穆朗玛峰长草</h4>
+                        </div>
+
+                        <div class="card__details">
+                            <p>
+                                近期，被誉为地球“第三极”的喜马拉雅山脉地区也出现异常现象，科学家在喜马拉雅山地区海拔4000-6000米左右高度进行考察时发现，这些地区的植被覆盖率明显增多，珠穆朗玛峰5000-6000米高度的山坡地区也出现了草和灌木丛的覆盖面积大幅度增加的情况，在海拔6159米处发现了植物存活。
+                            </p>
+                            <p>
+                                研究人员通过对1993-2018年的观测数据进行对比的时候，在珠穆朗玛峰5000-6000米左右地区草和灌木丛覆盖率比之前增加了5-15倍左右，这些地区曾经都是极寒地区，十几年前这里还是被一片永久性冰川所覆盖，根本没有温带、亚热带地区的草和植被能够生存，如今却长草了。
+                            </p>
+                            <a href="index.html" class="btn btn--white">分析奥秘</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1-of-3">
+                <div class="card">
+                    <div class="card__side card__side--front-3">
+                        <img src="static/images/south1.jpg" alt="南极长城站附近"
+                            style="width : 95%;padding-top: 10%;padding-left: 5%;">
+                        <img src="static/images/south2.jpg" alt="南极"
+                            style="width : 95%;padding-top: 10%;padding-left: 5%;">
+                    </div>
+                    <div class="card__side card__side--back card__side--back-3">
+                        <div class="card__title card__title--3">
+                            <h4 class="card__heading">新闻三：令人怀疑的南极洲高温和冰川大面积融化</h4>
+                        </div>
+
+                        <div class="card__details">
+                            <p>
+                                在2020年2月6号，天气工作站记录了南极有史以来的最高温度，在位于南极洲最北边的一个工作站测得温度为18.3摄氏度，这个温度，使得附近的冰川出现了大范围的融化，高温从2月5号一直持续到2月13号。
+                            </p>
+                            <p>Mauri
+                                Pelto是一个冰川学家，根据他的观察，在此次南极温度变暖事件中，大约1.5平方公里的积雪场融化变成雪水，根据气候评估模型，位于南极洲的一个岛屿——鹰岛的积雪在2月6号厚度下降了30厘米，然而在2月6号到2月11之间，积雪厚度融化了106厘米，鹰岛上大约有20%的雪由于高温而融化，这是有史以来南极洲冰雪融化最快的一次。
+                            </p>
+                            <a href="index.html" class="btn btn--white">分析奥秘</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <script src="static/JavaScript/flexible.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../static/JavaScript/echarts.min.js"></script>
+    <script src="../static/JavaScript/echarts-gl.js"></script>
+    <script src="../static/JavaScript/3.3.1-jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+
+
+
+
+        //从服务器获取
+        //url: 'http://114.116.144.86:8000/uploads/webapp/earthwarm_json/sandian.json',
+
+
+        //从本地获取
+        //$.get('http://127.0.0.1/Project/earthwarm/json/sandian.json', function (data) {
+
+
+
+
+
+
+        //为了避免网络和配置环境的影响，以最直观、方便的方式获取后台数据文件的内容，所以仅此次上交的作品文件，采用静态赋值数据的方式展示成品，望谅解。
+        //我们小组正常情况下采取上方：从服务器获取、从本地后台获取，两种方式获取后台数据文件的内容。
+        var data = [["temp", "year", "country"], [11.939666666666666, "1952", "Japan"], [13.088916666666664, "1952", "France"], [8.006833333333333, "1952", "Germany"], [6.640916666666667, "1952", "China"], [8.979416666666667, "1952", "United States"], [8.37125, "1952", "United Kingdom"], [13.261250000000002, "1952", "Italy"], [24.3655, "1952", "India"], [24.851666666666663, "1952", "Brazil"], [-3.984666666666666, "1952", "Canada"], [24.026416666666666, "1957", "India"], [24.801916666666667, "1957", "Brazil"], [-5.007916666666667, "1957", "Canada"], [8.686083333333334, "1957", "Germany"], [13.101999999999999, "1957", "France"], [6.387999999999999, "1957", "China"], [9.177833333333334, "1957", "United Kingdom"], [12.055333333333332, "1957", "Japan"], [9.126333333333333, "1957", "United States"], [13.048250000000001, "1957", "Italy"], [6.703666666666666, "1962", "China"], [7.994, "1962", "United Kingdom"], [12.466166666666666, "1962", "Japan"], [8.9565, "1962", "United States"], [12.658000000000001, "1962", "Italy"], [23.88475, "1962", "India"], [24.84233333333333, "1962", "Brazil"], [-4.873833333333334, "1962", "Canada"], [7.324916666666668, "1962", "Germany"], [12.414333333333332, "1962", "France"], [-5.282083333333334, "1967", "Canada"], [25.01366666666667, "1967", "Brazil"], [8.833166666666667, "1967", "United Kingdom"], [9.041666666666666, "1967", "Germany"], [13.0875, "1967", "France"], [6.402583333333333, "1967", "China"], [12.266333333333334, "1967", "Japan"], [8.902000000000001, "1967", "United States"], [13.13725, "1967", "Italy"], [23.99208333333333, "1967", "India"], [12.592166666666666, "1972", "Japan"], [8.428083333333335, "1972", "United States"], [24.272166666666667, "1972", "India"], [12.716833333333334, "1972", "Italy"], [8.492500000000001, "1972", "United Kingdom"], [-6.802916666666667, "1972", "Canada"], [25.097333333333335, "1972", "Brazil"], [8.054833333333333, "1972", "Germany"], [12.594416666666667, "1972", "France"], [6.814416666666666, "1972", "China"], [8.804833333333333, "1977", "Germany"], [13.016583333333331, "1977", "France"], [6.851333333333333, "1977", "China"], [9.269833333333334, "1977", "United States"], [12.19825, "1977", "Japan"], [24.288916666666665, "1977", "India"], [-3.84075, "1977", "Canada"], [25.132333333333335, "1977", "Brazil"], [8.649500000000002, "1977", "United Kingdom"], [13.03875, "1977", "Italy"], [-5.875166666666666, "1982", "Canada"], [13.439916666666669, "1982", "Italy"], [9.014583333333333, "1982", "United Kingdom"], [13.679416666666667, "1982", "France"], [9.073333333333332, "1982", "Germany"], [25.23033333333333, "1982", "Brazil"], [7.149749999999998, "1982", "China"], [8.539499999999999, "1982", "United States"], [12.33633333333333, "1982", "Japan"], [24.21825, "1982", "India"], [9.628166666666667, "1987", "United States"], [12.543833333333334, "1987", "Japan"], [24.789083333333338, "1987", "India"], [7.249, "1987", "China"], [8.33025, "1987", "United Kingdom"], [12.955166666666669, "1987", "France"], [-3.3433333333333337, "1987", "Canada"], [13.176499999999999, "1987", "Italy"], [7.58925, "1987", "Germany"], [25.563416666666665, "1987", "Brazil"], [9.025, "1992", "United Kingdom"], [-4.928916666666666, "1992", "Canada"], [13.58175, "1992", "Italy"], [9.505833333333333, "1992", "Germany"], [13.462916666666667, "1992", "France"], [25.251333333333335, "1992", "Brazil"], [9.056333333333333, "1992", "United States"], [6.858416666666667, "1992", "China"], [12.484250000000001, "1992", "Japan"], [24.222916666666663, "1992", "India"], [12.752416666666667, "1997", "Japan"], [24.04733333333333, "1997", "India"], [7.367333333333332, "1997", "China"], [-4.2315, "1997", "Canada"], [9.64425, "1997", "United Kingdom"], [13.838833333333332, "1997", "Italy"], [9.048666666666666, "1997", "Germany"], [25.559416666666667, "1997", "Brazil"], [14.095999999999998, "1997", "France"], [9.172916666666667, "1997", "United States"], [25.80033333333333, "2002", "Brazil"], [14.048166666666667, "2002", "France"], [9.816166666666666, "2002", "United States"], [9.637333333333334, "2002", "Germany"], [7.7956666666666665, "2002", "China"], [12.837333333333333, "2002", "Japan"], [24.913, "2002", "India"], [-4.362833333333334, "2002", "Canada"], [9.679666666666668, "2002", "United Kingdom"], [13.934, "2002", "Italy"], [9.837499999999999, "2007", "United States"], [9.797499999999998, "2007", "United Kingdom"], [13.192166666666665, "2007", "Japan"], [14.073333333333336, "2007", "Italy"], [24.649916666666666, "2007", "India"], [25.668000000000003, "2007", "Brazil"], [-4.060916666666667, "2007", "Canada"], [13.896583333333334, "2007", "France"], [9.9975, "2007", "Germany"], [8.12675, "2007", "China"], [9.227166666666665, "2012", "Germany"], [7.077083333333332, "2012", "China"], [10.261083333333334, "2012", "United States"], [12.565666666666667, "2012", "Japan"], [24.640833333333337, "2012", "India"], [9.037416666666667, "2012", "United Kingdom"], [14.079, "2012", "Italy"], [-3.176833333333334, "2012", "Canada"], [13.707166666666666, "2012", "France"], [25.717083333333335, "2012", "Brazil"]];
+
+
+
+
+
+
+
+        option = {
+            title: {
+                text: '全球GDP排名前十国家温度(temperature)趋势分析',
+                //    subtext: 'By ecStat.regression',              //  副标题文本
+                //   sublink: 'https://github.com/ecomfe/echarts-stat',   // 副标题超链接
+                left: 'center',
+                top: 16,
+                textStyle: {
+                    fontSize: 20,
+                },
+            },
+            grid3D: {
+                top: '-5%',
+                left: '5%',
+                axisLine: {
+                    lineStyle: {
+                        color: 'black' //坐标轴轴线颜色
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'black' //分割线颜色
+                    }
+                },
+                axisPointer: {
+                    lineStyle: {
+                        color: 'black' //鼠标滑过分割线颜色
+                    }
+                },
+                viewControl: {
+                    projection: 'perspective',	//默认为透视投影'perspective'，也支持设置为正交投影'orthographic'
+                    autoRotate: true,	//自动旋转
+                    autoRotateDirection: 'ccw', //默认是 'cw' 从上往下看是顺时针 也可以取 'ccw'逆时针
+                    autoRotateSpeed: 4,	//默认10 自转速度
+                    autoRotateAfterStill: 5,	//默认3秒 鼠标静止操作后恢复自动旋转的时间间隔
+                    damping: 0.8,	//鼠标进行旋转，缩放等操作时的迟滞因子，在大于 0 的时候鼠标在停止操作后，视角仍会因为一定的惯性继续运动（旋转和缩放）
+                    animation: true,	//是否开启动画
+                    animationDurationUpdate: 1000,	//过渡动画的时长
+                    animationEasingUpdate: 'cubicInOut' //过渡动画的缓动效果
+                },
+            },
+
+            xAxis3D: {
+                type: 'category',
+                name: 'Country',
+                nameGap: 25,       //坐标轴名称与轴线之间的距离；
+                nameLocation: 'middle',
+                nameTextStyle: {
+                    fontSize: 16
+                },
+                axisLabel: {
+                    interval: 0    // 数据不重叠
+                },
+            },
+            yAxis3D: {
+                name: 'year',
+                nameGap: 20,       //坐标轴名称与轴线之间的距离；
+                nameLocation: 'middle',
+                nameTextStyle: {
+                    fontSize: 16
+                },
+                min: 1950,
+            },
+            zAxis3D: {
+                name: 'temperature',
+                nameGap: 20,       //坐标轴名称与轴线之间的距离；
+                nameLocation: 'middle',
+                nameTextStyle: {
+                    fontSize: 16
+                },
+
+                axisLabel: {
+                    formatter: '{value} ℃'
+                }
+            },
+
+            dataset: {
+                dimensions: [
+                    'temp',
+                    'year',
+                    'Country',
+                    { name: 'year', type: 'ordinal' }   // 离散类型
+                ],
+                source: data
+            },
+
+            series: [
+                {
+                    type: 'scatter3D',
+                    symbolSize: 8,
+                    encode: {
+                        x: 'country',
+                        y: 'year',
+                        z: 'temp',
+                        tooltip: [0, 1, 2, 3, 4]
+                    },
+                    itemStyle: {
+                        color: 'white',	//点颜色
+                        borderColor: 'red', //点边框颜色
+                        opacity: 0.5, //点的透明度 1不透明
+                        borderWidth: 0.5 //图形描边宽度
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            color: 'red',	//鼠标移到点上的颜色变化
+                            opacity: 1,	//不透明度
+                            borderWidth: 0.5,	//图像描边宽度
+                            borderColor: 'white' //图形描边颜色
+                        },
+                    },
+
+                },
+
+            ]
+
+
+
+
+        };
+
+        myChart.setOption(option);       // 使用刚指定的配置项和数据显示图表。
+
+
+
+
+
+ //       });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击文字弹出一个DIV层窗口代码</title>
+
+    <style>
+        .black_overlay {
+            display: none;
+            /* 不可见 */
+            position: absolute;
+            /* 绝对位置 */
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1001;
+            /* z大的覆盖z小的 */
+            opacity: 0.8;
+            /*  -moz-opacity: 0.8;  */
+            /* filter: alpha(opacity=88);   IE专用滤镜  */
+        }
+
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            width: 66%;
+            height: 77%;
+            padding: 10px;
+            border: 10px solid orange;
+            background-color: white;
+            z-index: 1002;
+            overflow: auto;
+            /* 滚动条 */
+        }
+
+        .white_content .flydanxian {
+            width: 800px;
+            height: 500px;
+        }
+
+        .white_content .flyduoxian {
+            width: 800px;
+            height: 600px;
+        }
+
+        .white_content .fly3D {
+            width: 800px;
+            height: 600px;
+        }
+        .white_content .flyhuigui {
+            width: 800px;
+            height: 600px;
+        }
+
+        .white_content .flyqipao1 {
+            width: 800px;
+            height: 600px;
+        }
+
+        .white_content .flyqipao2 {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 单线 -->
+    <p>
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light1').style.display='block'; document.getElementById('fade').style.display='block'">全球二氧化碳排放量(CO2 emissions)趋势分析</a>
+    </p>
+    <!-- 多线 -->
+    <p>
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light2').style.display='block'; document.getElementById('fade').style.display='block'">全球GDP排名前十国家二氧化碳排放量(CO2 emissions)趋势分析</a>
+    </p>
+    <!-- 3D -->
+    <p>
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light3').style.display='block'; document.getElementById('fade').style.display='block'">全球GDP排名前十国家温度(temperature)趋势分析</a>
+    </p>
+    <!-- 气泡1 -->
+    <p>
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light4').style.display='block'; document.getElementById('fade').style.display='block'">142个国家寿命期望与人均GDP关系演变</a>
+    </p>
+    <!-- 气泡2 -->
+    <p>
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light5').style.display='block'; document.getElementById('fade').style.display='block'">132个国家二氧化碳排放量(CO2 emissions)与人均GDP关系演变</a>
+    </p>
+    <!-- 回归 -->
+    <p>
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light6').style.display='block'; document.getElementById('fade').style.display='block'">全球二氧化碳排放量(CO2
+            emissions)和温度(temperature)分析</a>
+    </p>
+
+    <!-- 生成悬浮框 -->
+    <div id="light1" class="white_content">
+        <!--    <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2> -->
+        <div class="flydanxian"></div> <!-- 数据详情 -->
+
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light1').style.display='none'; document.getElementById('fade').style.display='none'">点这里关闭本窗口</a>
+    </div>
+    <div id="light2" class="white_content">
+        <!--    <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2> -->
+        <div class="flyduoxian"></div> <!-- 数据详情 -->
+
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light2').style.display='none'; document.getElementById('fade').style.display='none'">点这里关闭本窗口</a>
+    </div>
+    <div id="light3" class="white_content">
+        <!--    <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2> -->
+        <div class="fly3D"></div> <!-- 数据详情 -->
+
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light3').style.display='none'; document.getElementById('fade').style.display='none'">点这里关闭本窗口</a>
+    </div>
+    <div id="light4" class="white_content">
+        <!--    <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2> -->
+        <div class="flyqipao1"></div> <!-- 数据详情 -->
+
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light4').style.display='none'; document.getElementById('fade').style.display='none'">点这里关闭本窗口</a>
+    </div>
+    <div id="light5" class="white_content">
+        <!--    <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2> -->
+        <div class="flyqipao2"></div> <!-- 数据详情 -->
+
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light5').style.display='none'; document.getElementById('fade').style.display='none'">点这里关闭本窗口</a>
+    </div>
+    <div id="light6" class="white_content">
+        <!--    <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2> -->
+        <div class="flyhuigui"></div> <!-- 数据详情 -->
+
+        <a href="javascript:void(0)"
+            onclick="document.getElementById('light6').style.display='none'; document.getElementById('fade').style.display='none'">点这里关闭本窗口</a>
+    </div>
+    
+
+    <div id="fade" class="black_overlay"></div> <!-- 背景变黑不可选中 -->
+
+    <script src="../static/JavaScript/flexible.js"></script>
+    <script src="../static/JavaScript/echarts.min.js"></script>
+    <script src="../static/JavaScript/ecStat.min.js"></script>
+    <script src="../static/JavaScript/echarts-gl.js"></script>
+    <script src="../static/JavaScript/3.3.1-jquery.min.js"></script>
+    <!--   <script src="JavaScript/index.js"></script> -->
+
+
+    <script src="../static/JavaScript/flyindex.js"></script>
+
+
+</body>
+
+</html>

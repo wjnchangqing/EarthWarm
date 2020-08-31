@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../static/JavaScript/echarts.min.js"></script>
+    <script src="../static/JavaScript/3.3.1-jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px; height: 500px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+
+        //全局赋初值
+        var option = '';
+
+
+
+        //异步获取数据
+
+
+        //从服务器获取
+        //url: 'http://114.116.144.86:8000/uploads/webapp/earthwarm_json/danxian.json',
+
+
+        //从本地获取
+        /* $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: 'http://127.0.0.1/Project/test/public/index.php/danxian',
+
+            success: function (data) { */
+
+        // $.each(data, function () {
+        //     str += '<option value = ' + this.type_id + '>' + this.typename + '</option>';
+
+        // });
+
+
+
+
+        //为了避免网络和配置环境的影响，以最直观、方便的方式获取后台数据文件的内容，所以仅此次上交的作品文件，采用静态赋值数据的方式展示成品，望谅解。
+        //我们小组正常情况下采取上方：从服务器获取、从本地后台获取，两种方式获取后台数据文件的内容。
+        var data = { "x": ["1952", "1957", "1962", "1967", "1972", "1977", "1982", "1987", "1992", "1997", "2002", "2007", "2012", "2017"], "y": ["2.44E+11", "2.80E+11", "3.26E+11", "3.83E+11", "4.57E+11", "5.43E+11", "6.38E+11", "7.37E+11", "8.48E+11", "9.63E+11", "1.09E+12", "1.23E+12", "1.40E+12", "1.58E+12"] };
+
+
+
+
+        console.log(data.x);
+        console.log(data.y);
+
+        option = {
+            title: {
+                text: '全球二氧化碳排放量(CO2 emissions)趋势分析',
+                //    subtext: 'By ecStat.regression',              //  副标题文本
+                //   sublink: 'https://github.com/ecomfe/echarts-stat',   // 副标题超链接
+                left: 'center',
+                top: 16,
+            },
+            xAxis: {
+                type: 'category',
+                data: data.x,
+                name: 'year',
+                nameLocation: 'middle',
+                nameGap: 25,       //坐标轴名称与轴线之间的距离；
+                nameTextStyle: {
+                    fontSize: 13
+                },
+            },
+            yAxis: {
+                type: 'value',
+                name: 'CO2 emissions（10^9t）',
+                nameTextStyle: {
+                    fontSize: 13
+                },
+                axisLabel: {
+                    formatter: function (v) {
+                        let item = ''
+                        if (v === 300000000000) {
+                            item = '300'
+                        } else if (v == 600000000000) {
+                            item = '600'
+                        } else if (v == 900000000000) {
+                            item = '900'
+                        } else if (v == 1200000000000) {
+                            item = '1200'
+                        } else if (v == 1500000000000) {
+                            item = '1500'
+                        } else if (v == 1800000000000) {
+                            item = '1800'
+                        }
+                        return item
+                    }
+                }
+            },
+            series: [{
+                data: data.y,
+                type: 'line',
+                smooth: true
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+
+
+        /*  },
+         error: function (e) {
+         }
+     }); */
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

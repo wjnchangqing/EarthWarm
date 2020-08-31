@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../static/JavaScript/echarts.min.js"></script>
+    <script src="../static/JavaScript/3.3.1-jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div style="width: 900px; 
+                height:40px;
+                text-align:center">
+        <strong style="font-size:20px">全球GDP排名前十国家二氧化碳排放量(CO2 emissions)趋势分析</strong>
+    </div>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px; height: 600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+
+
+
+        //异步获取数据
+
+
+        //从服务器获取
+        //url: 'http://114.116.144.86:8000/uploads/webapp/earthwarm_json/duoxian.json',
+
+
+        //从本地获取
+        /*  $.ajax({
+             type: 'get',
+             dataType: 'json',
+             url: 'http://127.0.0.1/Project/test/public/index.php/duoxian',
+             success: function (data) { */
+
+        // $.each(data, function () {
+        //     str += '<option value = ' + this.type_id + '>' + this.typename + '</option>';
+        // });
+
+
+
+
+        //为了避免网络和配置环境的影响，以最直观、方便的方式获取后台数据文件的内容，所以仅此次上交的作品文件，采用静态赋值数据的方式展示成品，望谅解。
+        //我们小组正常情况下采取上方：从服务器获取、从本地后台获取，两种方式获取后台数据文件的内容。
+        var data = [["Country", "1952", "1957", "1962", "1967", "1972", "1977", "1982", "1987", "1992", "1997", "2002", "2007", "2012", "2017"], ["United States", "96964213248", "1.10E+11", "1.25E+11", "1.42E+11", "1.63E+11", "1.86E+11", "2.09E+11", "2.32E+11", "2.57E+11", "2.84E+11", "3.14E+11", "3.44E+11", "3.72E+11", "3.99E+11"], ["China", "2101421248", "3060366992", "6075180207", "8374764636", "11991592449", "17579793492", "24994301443", "34647497268", "46998484242", "62932474765", "80014390407", "1.09E+11", "1.51E+11", "2.00E+11"], ["Japan", "4371276576", "5150393200", "6332385598", "8311135879", "11942941840", "16480409788", "21104191561", "25649373141", "31155771473", "37282237270", "43513846356", "49928815630", "56093319098", "62304608199"], ["Germany", "30377681728", "33928922128", "37973644704", "42736591888", "47879745024", "53180168032", "58552500704", "63735159088", "68778354691", "73508365264", "78049044496", "82437077670", "86541146806", "90565630028"], ["United Kingdom", "40222706832", "43036556240", "45904663746", "48948158713", "52144021692", "55226918759", "58163977997", "60938424061", "63893888327", "66766760794", "69597782225", "72439562234", "74948711673", "77071055648"], ["France", "12340289712", "13566385024", "14946483143", "16698439323", "18881678943", "21335752479", "23772783900", "25773610048", "27791405931", "29809648935", "31932567219", "34057136609", "35995675228", "37768075471"], ["India", "2337793216", "2764542960", "3372506700", "4186956736", "5181702172", "6427862565", "8002106455", "10130101461", "13203664617", "17296137907", "22337794361", "28462760974", "37231830380", "48557863281"], ["Italy", "1791296624", "2156253008", "2717820787", "3695738483", "5150222917", "6923091489", "8808235134", "10643516763", "12753471411", "14956569121", "17306089856", "19758573936", "21872863421", "23645999964"], ["Brazil", "301774368", "463331120", "691045205", "989883479", "1461190326", "2203127321", "3093229445", "4009213756", "5071422464", "6372589816", "7981826248", "9673961432", "11715895322", "14190905220"], ["Canada", "4828455840", "5694204080", "6654570818", "7895687729", "9580317153", "11554677167", "13698671402", "15789437857", "18095235665", "20577648070", "23369978876", "26284837478", "29080072830", "31913521876"]]
+
+
+
+
+
+        console.log(data.x);
+        console.log(data.y);
+
+
+        option = {
+            legend: {},  //图例
+            tooltip: {     //提示框
+                trigger: 'axis',   //触发类型：一条柱触发
+                showContent: false
+            },
+
+            dataset: {   // 数据集声明，多组件复用
+                source: data
+            },
+            xAxis: {
+                type: 'category',    // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+                name: 'year',
+                nameLocation: 'middle',
+                nameGap: 25,       //坐标轴名称与轴线之间的距离；
+                nameTextStyle: {
+                    fontSize: 13
+                },
+            },
+            yAxis: {
+                type: 'log',  // 默认为以10为底
+                gridIndex: 0,
+                name: 'CO2 emissions（10^9t）',
+                nameTextStyle: {
+                    fontSize: 13
+                },
+                axisLabel: {
+                    formatter: function (v) {
+                        let item = ''
+                        if (v === 100000000) {
+                            item = '0.1'
+                        } else if (v == 1000000000) {
+                            item = '1'
+                        } else if (v == 10000000000) {
+                            item = '10'
+                        } else if (v == 100000000000) {
+                            item = '100'
+                        } else if (v == 1000000000000) {
+                            item = '1000'
+                        }
+                        return item
+                    }
+                }
+            },
+            grid: {
+                top: '50%',
+            },
+            series: [                  // 声明多个line系列，每个系列会自动对应到 dataset 的每一行。
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+
+                {
+                    type: 'pie',
+                    id: 'pie',
+                    radius: '30%',
+                    center: ['50%', '25%'],
+                    label: {
+                        formatter: '{b}: {@1952} ({d}%)'   //饼图注释
+                    },
+                    encode: {     //指定数据到视觉的映射
+                        itemName: 'Country',
+                        value: '1952',
+                        tooltip: '1952'
+                    },
+
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+
+        /*  },
+         error: function (e) {
+         }
+     }); */
+
+
+
+
+
+
+        // 指定图表的配置项和数据
+
+        myChart.on('updateAxisPointer', function (event) {
+            var xAxisInfo = event.axesInfo[0];   // 获取鼠标事件
+            if (xAxisInfo) {
+                var dimension = xAxisInfo.value + 1;
+                myChart.setOption({
+                    series: {
+                        id: 'pie',
+                        label: {
+                            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                        },
+                        encode: {
+                            value: dimension,
+                            tooltip: dimension
+                        }
+                    }
+                });
+            }
+        });
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        //myChart.setOption(option);
+    </script>
+</body>
+
+</html>

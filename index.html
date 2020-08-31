@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"全球变暖"数据可视化</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/flyindex.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>"全球变暖"数据可视化</h1>
+        <div class="showTime"></div>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000); //開始运行
+            function time() {
+                clearTimeout(t); //清除定时器
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var h = dt.getHours(); //获取时
+                var m = dt.getMinutes(); //获取分
+                var s = dt.getSeconds(); //获取秒
+                document.querySelector(".showTime").innerHTML = '当前时间：' + y + "年" + mt + "月" + day + "-" + h + "时" + m +
+                    "分" + s + "秒";
+                t = setTimeout(time, 1000); //设定定时器，循环运行     
+            }
+        </script>
+
+    </header>
+
+    <section class="mainbox">
+        <div class="column">
+
+            <div class="panel danxian">
+                <p>
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light1').style.display='block'; document.getElementById('fade').style.display='block'">全球二氧化碳排放量(CO2
+                        emissions)趋势分析</a>
+                </p>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+
+            <div class="panel1 duoxian">
+                <p>
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light2').style.display='block'; document.getElementById('fade').style.display='block'">全球GDP排名前十国家二氧化碳排放量(CO2
+                        emissions)趋势分析</a>
+                </p>
+                <div class="chart"></div>
+                <div class="panel1-footer"></div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="threeD">
+                <p style="margin-top: 30px;  z-index: 99;position: relative; margin-left: 7.5%;">
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light3').style.display='block'; document.getElementById('fade').style.display='block'">全球GDP排名前十国家温度(temperature)趋势分析</a>
+                </p>
+                <div class="chart" style="z-index: 9;"></div>
+                <div class="map1"></div>
+                <div class="map2"></div>
+                <div class="map3"></div>
+            </div>
+            <div class="next"><a href="result.html" style="color:white; text-decoration:none; ">查看分析结果</a></div>
+        </div>
+
+        <div class="column">
+            <div class="panel qipao1">
+                <p>
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light4').style.display='block'; document.getElementById('fade').style.display='block'">142个国家寿命期望与人均GDP关系演变</a>
+                </p>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel qipao2">
+                <p>
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light5').style.display='block'; document.getElementById('fade').style.display='block'">132个国家二氧化碳排放量(CO2
+                        emissions)与人均GDP关系演变</a>
+                </p>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel huigui">
+                <p>
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light6').style.display='block'; document.getElementById('fade').style.display='block'">全球二氧化碳排放量(CO2
+                        emissions)和温度(temperature)分析</a>
+                </p>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+
+        </div>
+        <!-- 生成悬浮框 -->
+        <div id="light1" class="white_content">
+            <h2>全球二氧化碳排放量(CO2 emissions)趋势分析</h2>
+            <a href="javascript:void(0)"
+                onclick="document.getElementById('light1').style.display='none'; document.getElementById('fade').style.display='none'">
+                <img src="static/images/close.png" alt="点击关闭">
+            </a>
+            <div class="flydanxian"></div> <!-- 数据详情 -->
+
+        </div>
+        <div id="light2" class="white_content">
+            <h2>全球GDP排名前十国家二氧化碳排放量(CO2 emissions)趋势分析</h2>
+            <a href="javascript:void(0)"
+                onclick="document.getElementById('light2').style.display='none'; document.getElementById('fade').style.display='none'">
+                <img src="static/images/close.png" alt="点击关闭">
+            </a>
+            <div class="flyduoxian"></div> <!-- 数据详情 -->
+
+
+        </div>
+        <div id="light3" class="white_content">
+            <h2>全球GDP排名前十国家温度(temperature)趋势分析</h2>
+            <a href="javascript:void(0)"
+                onclick="document.getElementById('light3').style.display='none'; document.getElementById('fade').style.display='none'">
+                <img src="static/images/close.png" alt="点击关闭">
+            </a>
+            <div class="fly3D"></div> <!-- 数据详情 -->
+
+        </div>
+        <div id="light4" class="white_content">
+            <h2>142个国家寿命期望与人均GDP关系演变</h2>
+            <a href="javascript:void(0)"
+                onclick="document.getElementById('light4').style.display='none'; document.getElementById('fade').style.display='none'">
+                <img src="static/images/close.png" alt="点击关闭">
+            </a>
+            <div class="flyqipao1"></div> <!-- 数据详情 -->
+
+        </div>
+        <div id="light5" class="white_content">
+            <h2>132个国家二氧化碳排放量(CO2 emissions)与人均GDP关系演变</h2>
+            <a href="javascript:void(0)"
+                onclick="document.getElementById('light5').style.display='none'; document.getElementById('fade').style.display='none'">
+                <img src="static/images/close.png" alt="点击关闭">
+            </a>
+            <div class="flyqipao2"></div> <!-- 数据详情 -->
+
+        </div>
+        <div id="light6" class="white_content">
+            <h2>全球二氧化碳排放量(CO2 emissions)和温度(temperature)分析</h2>
+            <a href="javascript:void(0)"
+                onclick="document.getElementById('light6').style.display='none'; document.getElementById('fade').style.display='none'">
+                <img src="static/images/close.png" alt="点击关闭">
+            </a>
+            <div class="flyhuigui"></div> <!-- 数据详情 -->
+
+        </div>
+
+
+        <div id="fade" class="black_overlay"></div> <!-- 背景变黑不可选中 -->
+    </section>
+
+
+
+    <script src="static/JavaScript/flexible.js"></script>
+    <script src="static/JavaScript/echarts.min.js"></script>
+    <script src="static/JavaScript/ecStat.min.js"></script>
+    <script src="static/JavaScript/echarts-gl.js"></script>
+    <script src="static/JavaScript/3.3.1-jquery.min.js"></script>
+    <script src="static/JavaScript/index.js"></script>
+    <script src="static/JavaScript/flyindex.js"></script>
+</body>
+
+</html>
